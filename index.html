@@ -1,0 +1,583 @@
+<body>
+
+<style>
+    /* * Base Styles (Applied via .page-body) 
+     */
+    .page-body {
+        background-color: #fff;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 17px; /* Reduced for less scroll */
+        line-height: 1.6; /* Reduced for less scroll */
+        font-weight: 400;
+        color: #5a5a5a;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* * Container 
+     */
+    .blog-container {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 20px 25px;
+        background-color: #fff9f1;
+        border-radius: 15px;
+        box-shadow: 0px 0px 6px rgba(117, 63, 33, 0.5);
+    }
+
+    /* Responsive Padding (Using existing media query) */
+    @media (min-width: 600px) {
+        .blog-container {
+            padding: 30px 50px; /* Reduced padding */
+        }
+    }
+
+    /* * Headings 
+     */
+    .main-heading {
+        font-family: "Dosis", sans-serif;
+        color: #753f21;
+        font-size: 26px; /* Slightly reduced */
+        font-weight: 600;
+        line-height: 1.2;
+        margin-top: 0;
+        margin-bottom: 25px; /* Reduced spacing */
+        text-align: center;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #E8DCCF;
+    }
+
+    .section-heading {
+        font-family: "Dosis", sans-serif;
+        color: #753f21;
+        font-size: 22px; /* Slightly reduced */
+        font-weight: 600;
+        margin-top: 18px; /* Reduced spacing */
+        margin-bottom: 18px;
+        /* Highlight style */
+        padding: 8px 20px 8px 12px; /* Reduced padding */
+        background-color: #F6E8D5;
+        box-shadow: 1px 1px 5px rgb(117 63 33 / 39%);
+        border-left: 4px solid #A06346;
+        border-radius: 10px;
+        line-height: 1.3;
+        display: inline-block; /* Only wraps content */
+    }
+
+    /* Minimalist Elegant Sub-Heading */
+    .sub-heading-style {
+        font-family: "Dosis", sans-serif;
+        color: #838383;
+        font-size: 14px; /* Reduced size */
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 30px; /* Reduced spacing */
+        margin-bottom: 12px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #DCDCDC;
+        display: block;
+    }
+
+    /* * Text & Lists 
+     */
+    .body-paragraph {
+        margin-bottom: 1.2em; /* Reduced spacing */
+        font-family:"Cormorant Garamond", serif;
+        color: #6c6c6c;
+        line-height: 1.4;
+        font-weight: lighter;
+    }
+    
+    .text-strong {
+        font-weight: 600;
+    }
+
+    .content-list {
+        padding-left: 25px; /* Reduced spacing */
+        margin-bottom: 1.4em; /* Reduced spacing */
+        list-style: none;
+    }
+
+    .content-list li {
+        margin-bottom: 0.7em; /* Reduced spacing */
+        position: relative;
+    }
+
+    /* Custom list marker (requires pseudo-element, cannot be inline) */
+    .content-list li::before {
+        content: '•';
+        color: #753f21;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    .note-box {
+        background-color: #fcf8f5;
+        border: 1px solid #E8DCCF;
+        border-left: 4px solid #753f21;
+        border-radius: 4px;
+        padding: 15px; /* Reduced padding */
+        margin: 25px 0; /* Reduced spacing */
+        line-height: 1.5;
+        font-style: italic;
+    }
+
+    .note-box-title {
+        color: #753f21;
+        font-style: normal;
+        font-family: "Dosis", sans-serif;
+        font-size: 16px;
+    }
+
+    .note-box-text-center {
+        text-align: center; 
+        margin: 8px 0 0; 
+        font-style: normal; 
+        font-size: 15px;
+    }
+
+    /* * Tables 
+     */
+    .table-responsive-wrapper {
+        overflow-x: auto;
+        margin: 25px 0; /* Reduced spacing */
+        border-radius: 6px;
+        box-shadow: 0 8px 15px rgb(118 68 24 / 22%);
+    }
+
+    .regional-table {
+        width: 100%;
+        min-width: 650px; /* Reduced min width slightly */
+        border-collapse: separate;
+        border-spacing: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 16px; /* Reduced font size */
+    }
+
+    .table-cell {
+        padding: 10px 8px; /* Significantly reduced padding */
+        text-align: left;
+        border-bottom: 1px solid #E8DCCF;
+        word-wrap: break-word;
+    }
+
+    .table-header {
+        background-color: #A06346;
+        color: white;
+        font-weight: 600;
+        font-family: "Dosis", sans-serif;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 3px solid #753f21;
+    }
+
+    /* Alternating Row Colors (Cannot be inline) */
+    .regional-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .regional-table tbody tr:nth-child(even) {
+        background-color: #FAF6F3;
+    }
+
+    /* Hover effect (Cannot be inline) */
+    .regional-table tbody tr:hover {
+        background-color: #F0EADF;
+        transition: background-color 0.2s ease;
+    }
+
+    /* * Brief Summary Box 
+     */
+    .kurz-gesagt {
+        border: 2px dashed #A06346;
+        /* padding: 18px 20px;  Reduced padding */
+        margin: 30px 0; /* Reduced spacing */
+        background-color: #fefcfb;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .kurz-gesagt-title {
+        font-family: 'Dosis', sans-serif; 
+        font-size: 17px; 
+        color: #753f21; 
+        font-weight: 600; 
+        margin-bottom: 0.6em;
+    }
+
+    .kurz-gesagt-list {
+        list-style: none;
+        padding-left: 0;
+        text-align: left;
+        max-width: 380px;
+        margin: 10px auto 0 auto;
+    }
+    
+    .kurz-gesagt-list li {
+        margin-bottom: 0.7em;
+        position: relative;
+    }
+
+    .kurz-gesagt-list li::before {
+        content: '→';
+        color: #753f21;
+        font-weight: bold;
+        margin-right: 5px;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    /* * Button 
+     */
+    .cta-button {
+        display: block;
+        width: fit-content;
+        margin: 30px auto; /* Reduced spacing */
+        padding: 12px 30px; /* Reduced padding */
+        background-color: #753f21;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-family: "Dosis", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        box-shadow: 0 3px 8px rgba(117, 63, 33, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .cta-button:hover {
+        background-color: #A06346;
+        transform: translateY(-1px);
+    }
+    
+    /* * CTA Pulse Animation 
+     */
+    @keyframes pulse-shadow {
+        0% {
+            box-shadow: 0 3px 8px rgba(117, 63, 33, 0.3), 0 0 0 0 rgba(255, 127, 80, 0.4);
+            background-color: #753f21;
+        }
+        50% {
+            box-shadow: 0 6px 15px rgba(117, 63, 33, 0.4), 0 0 0 8px rgba(255, 127, 80, 0); /* Subtle outer glow */
+            background-color: #A06346; /* Slightly lighter color at peak */
+        }
+        100% {
+            box-shadow: 0 3px 8px rgba(117, 63, 33, 0.3), 0 0 0 0 rgba(255, 127, 80, 0.4);
+            background-color: #753f21;
+        }
+    }
+
+    .cta-pulse {
+        animation: pulse-shadow 2.5s infinite ease-in-out;
+    }
+
+    /* * FAQs (DL) 
+     */
+    .faq-question {
+        font-family: "Dosis", sans-serif;
+        color: #753f21;
+        font-weight: 600;
+        margin-top: 12px;
+        font-size: 17px;
+    }
+
+    .faq-answer {
+        margin-left: 0;
+        padding-left: 8px;
+        margin-bottom: 12px;
+        border-left: 2px solid #E8DCCF;
+    }
+
+    /* * Mobile Adjustments (Keep scrolling behavior, reduce font size further)
+     */
+    @media (max-width: 768px) {
+        .table-responsive-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: none;
+        }
+
+        .regional-table {
+            min-width: 650px;
+        }
+
+        .table-header, .table-cell {
+            padding: 8px 6px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-heading {
+            font-size: 20px;
+        }
+        .section-heading {
+            font-size: 18px;
+        }
+        .page-body {
+            font-size: 16px;
+        }
+        .blog-container {
+            padding: 15px 12px;
+        }
+    }
+  /*
+ * Custom Scrollbar CSS (Webkit Browsers Only)
+ * Targets the main body and the table wrapper for a consistent look.
+ */
+
+/* 1. Overall width/size of the scrollbar (vertical/horizontal) */
+::-webkit-scrollbar {
+    width: 10px; /* Width for vertical scrollbar */
+    height: 10px; /* Height for horizontal scrollbar */
+}
+
+/* 2. Track/Background of the scrollbar (the area it moves over) */
+::-webkit-scrollbar-track {
+    background: #FFF9F1; /* Matches the main page-body background */
+    border-radius: 10px;
+}
+
+/* 3. Thumb (the movable handle of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #A06346; /* The rich brown color used in the table headers and accents */
+    border-radius: 10px;
+    border: 2px solid #FFF9F1; /* A slight border in the background color for separation */
+}
+
+/* 4. Thumb on hover (optional, but a nice interactive touch) */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #753f21; /* The darkest brown/main heading color for emphasis */
+}
+
+/* 5. Apply custom scroll to the responsive table wrapper as well (for horizontal scroll) */
+.table-responsive-wrapper::-webkit-scrollbar {
+    height: 8px;
+    width: 8px; /* Also reduce the vertical size slightly */
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-track {
+    background: #F0EADF; /* Lighter background, perhaps matching a hover row or light accent */
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+    background-color: #A06346; 
+    border: 1px solid #F0EADF;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #753f21;
+}
+</style>
+
+<div class="blog-container">
+
+    <h1 class="main-heading">Beste Reisezeit für eine Rundreise durch Indien – Monat-für-Monat-Guide für deutsche Reisende</h1>
+
+    <p class="body-paragraph">Indien ist nie gleich – vom Himalaya bis nach Kerala ändert sich das Klima alle paar hundert Kilometer. Doch wann lohnt sich eine Rundreise wirklich?</p>
+    <p class="body-paragraph">Wer eine Reise nach Indien plant, merkt schnell: Das Land ist ein Kontinent für sich. Zwischen tropischer Sonne im Süden, kühler Bergluft im Norden und trockenen Wüsten im Westen erlebt man in einem Land gleich mehrere Klimazonen.</p>
+    <p class="body-paragraph">Genau deshalb ist die Wahl der besten Reisezeit für Indien so wichtig – sie entscheidet darüber, ob du gemütlich durch die Tempel von Rajasthan schlenderst oder in den Monsunregen von Kerala gerätst.</p>
+    <p class="body-paragraph">In diesem Artikel erfährst du, wann und wo du am besten reisen kannst, wie das Wetter in Indien während einer Rundreise wirklich ist und welche Monate sich für welche Regionen lohnen. Ob du also schon eine Indien Reise planst oder einfach Inspiration suchst – dieser Monat-für-Monat-Guide hilft dir, dein perfektes Reise Zeitfenster zu finden.</p>
+
+<!--     <div class="sub-heading-style">WISSENSWERTES ZUM KLIMA</div> -->
+    <h2 class="section-heading">Warum das Klima in Indien so unterschiedlich ist</h2>
+
+    <p class="body-paragraph">Indien lässt sich nicht auf eine einzige Reisezeit festlegen. Das Land ist riesig – über 3.000 Kilometer lang, mit Gebirgen, Küsten, Wüsten und Dschungeln. All das wirkt sich direkt auf das Klima aus.</p>
+    <p class="body-paragraph">Grundsätzlich kann man Indien in drei Hauptklimazonen einteilen:</p>
+    <ul class="content-list">
+        <li><strong class="text-strong">Norden: Kontinental</strong> – heiße Sommer, kühle Winter.</li>
+        <li><strong class="text-strong">Süden: Tropisch</strong> – warm und feucht, kaum Temperaturschwankungen.</li>
+        <li><strong class="text-strong">Westen: Trocken</strong> – heiße Tage, kühle Nächte, besonders in Rajasthan.</li>
+    </ul>
+    <p class="body-paragraph">Dazu kommt der <strong class="text-strong">Monsun</strong>, der das Wetter entscheidend prägt. Von Juni bis September bringt er kräftige Regenfälle, besonders an der Westküste (Goa, Kerala). Ab Oktober beruhigt sich das Klima wieder, und das Land erstrahlt in frischem Grün.</p>
+    <p class="body-paragraph">Ein Beispiel:</p>
+    <ul class="content-list">
+        <li>In <strong class="text-strong">Rajasthan</strong> kannst du im Januar angenehm durch Jaipur schlendern, bei 25 °C und trockenem Himmel.</li>
+        <li>In <strong class="text-strong">Kerala</strong> dagegen ist es ganzjährig warm, aber im Juli fällt hier fast täglich Regen.</li>
+        <li>Und in <strong class="text-strong">Ladakh</strong> in Nordindien liegen im Januar Minusgrade – dort startet die Saison erst im Mai.</li>
+    </ul>
+
+    <div class="note-box">
+        <strong class="note-box-title">Tipp vom Experten:</strong> Wenn du deine Route kennst, findest du schnell die ideale Reisezeit – oder du lässt dich einfach von unseren Indien-Reiseexperten beraten, welche Route zu deinem Reisezeitraum passt.
+    </div>
+
+<!--     <div class="sub-heading-style">REGIONEN IM ÜBERBLICK</div> -->
+    <h2 class="section-heading">Die beste Reisezeit nach Regionen</h2>
+
+    <p class="body-paragraph">Indien lässt sich am besten verstehen, wenn man es in Regionen denkt. Jede Region hat ihren eigenen Rhythmus, und wer zur richtigen Zeit reist, bekommt das schönste Erlebnis.</p>
+
+    <div class="table-responsive-wrapper">
+        <table class="regional-table">
+            <thead>
+                <tr>
+                    <th class="table-header table-cell">Region</th>
+                    <th class="table-header table-cell">Beste Reisezeit</th>
+                    <th class="table-header table-cell">Klima & Besonderheiten</th>
+                    <th class="table-header table-cell">Was du erleben kannst</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-cell">Nordindien (Delhi, Rajasthan, Agra)</td>
+                    <td class="table-cell">Oktober – März</td>
+                    <td class="table-cell">Trocken & angenehm, 20–28 °C</td>
+                    <td class="table-cell">Taj Mahal, Jaipur, Wüstenfestivals, Paläste</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Südindien (Kerala, Tamil Nadu)</td>
+                    <td class="table-cell">Dezember – März</td>
+                    <td class="table-cell">Warm, wenig Regen</td>
+                    <td class="table-cell">Backwaters, Ayurveda, Strände, Tempel</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Himalaya (Ladakh, Sikkim, Dharamshala)</td>
+                    <td class="table-cell">Mai – September</td>
+                    <td class="table-cell">Kühl & klar</td>
+                    <td class="table-cell">Trekking, Klöster, Panoramablicke</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Zentralindien (Madhya Pradesh)</td>
+                    <td class="table-cell">November – Februar</td>
+                    <td class="table-cell">Mild & trocken</td>
+                    <td class="table-cell">Nationalparks, Tiger-Safaris, Tempel</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Westindien (Goa, Mumbai)</td>
+                    <td class="table-cell">November – März</td>
+                    <td class="table-cell">Ideal für Strandurlaub</td>
+                    <td class="table-cell">Goa-Strände, Nachtleben, Altstadt von Mumbai</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="body-paragraph">Wenn du also eine Rundreise durch Indien planst, orientiere dich an der Region – nicht am Kalender allein.</p>
+
+<!--     <div class="sub-heading-style">DEIN KOMPAKTES REISEJAHR</div> -->
+    <h2 class="section-heading">Indien Monat für Monat – wann wohin reisen</h2>
+
+    <p class="body-paragraph">Viele Reisende möchten genau wissen, welcher Monat sich wofür eignet. Hier ist dein kompakter Überblick:</p>
+    <ul class="content-list">
+        <li><strong class="text-strong">Januar – März:</strong> Angenehme Temperaturen in Nord- und Westindien. Ideal für Rajasthan, Agra, Delhi oder Goa.</li>
+        <li><strong class="text-strong">April – Juni:</strong> Die heiße Zeit im Flachland, aber perfekt für Himalaya-Regionen wie Ladakh oder Sikkim.</li>
+        <li><strong class="text-strong">Juli – September:</strong> Monsunzeit – üppiges Grün, weniger Touristen, günstigere Preise. Besonders reizvoll ist es in Kerala oder Tamil Nadu.</li>
+        <li><strong class="text-strong">Oktober – Dezember:</strong> Trocken, klar, angenehm – die beste Zeit für fast alle Regionen.</li>
+    </ul>
+
+    <div class="kurz-gesagt">
+        <p class="kurz-gesagt-title">Kurz gesagt:</p>
+        <ul class="kurz-gesagt-list">
+            <li>Wenn du <strong class="text-strong">Sonne und Kultur</strong> willst, reise im Winter (Okt–März).</li>
+            <li>Wenn du <strong class="text-strong">Tiere liebst</strong> oder in die Berge möchtest, reise im Sommer (Mai–Sept).</li>
+        </ul>
+    </div>
+
+<!--     <div class="sub-heading-style">PLANUNGSTIPPS FÜR DEUTSCHE REISENDE</div> -->
+    <h2 class="section-heading">Was du bei der Reisezeit-Planung beachten solltest</h2>
+
+    <p class="body-paragraph">Damit deine Indienreise perfekt wird, lohnt sich ein bisschen Vorbereitung. Hier sind einige praktische Tipps, bevor du buchst:</p>
+    <ul class="content-list">
+        <li><strong class="text-strong">Feiertage & Feste prüfen:</strong> Indien liebt Feste. Wenn du zu <strong class="text-strong">Holi</strong> (März) oder <strong class="text-strong">Diwali</strong> (Oktober/November) reist, bekommst du unvergessliche Eindrücke – aber Hotels können früh ausgebucht sein.</li>
+        <li><strong class="text-strong">Temperaturen vs. Luftfeuchtigkeit:</strong> In Südindien ist es auch in der Trockenzeit schwül. Im Norden kann es im Dezember richtig kühl werden – besonders morgens und abends.</li>
+        <li><strong class="text-strong">Frühzeitig buchen:</strong> Die Hochsaison (Dezember bis Februar) ist beliebt. Wer früh bucht, bekommt bessere Preise und Auswahl bei Flügen und Hotels.</li>
+        <li><strong class="text-strong">Kleidung & Ausstattung:</strong> In Rajasthan reicht leichte Baumwolle, im Himalaya brauchst du warme Kleidung. Ein leichter Schal ist in Tempeln immer praktisch.</li>
+    </ul>
+
+    <div class="note-box">
+        <strong class="note-box-title">Profitiere von unserer Erfahrung:</strong> Wir haben eine kostenlose PDF-Checkliste erstellt: „Indien Rundreise-Checkliste für jede Jahreszeit“
+        <p class="note-box-text-center">Jetzt herunterladen und deine Reise sicher planen. (E-Mail-Download)</p>
+    </div>
+
+<!--     <div class="sub-heading-style">KLIMATISCH OPTIMIERTE VORSCHLÄGE</div> -->
+    <h2 class="section-heading">Beispiel-Routen je nach Reisezeit</h2>
+
+    <h3 class="sub-heading-style">Winter-Route (Dezember – März)</h3>
+    <p class="body-paragraph"><strong class="text-strong">Ideal für Erstbesucher:</strong> Delhi – Agra – Jaipur – Udaipur – Goa. Kultur, Geschichte, Architektur und am Ende Sonne am Strand.</p>
+
+    <h3 class="sub-heading-style">Sommer-Route (Mai – August)</h3>
+    <p class="body-paragraph"><strong class="text-strong">Für Abenteuerlustige:</strong> Leh – Nubra – Srinagar – Dharamshala. Ideal für Trekking, buddhistische Klöster und spektakuläre Berglandschaften.</p>
+
+    <h3 class="sub-heading-style">Herbst-Route (Oktober – November)</h3>
+    <p class="body-paragraph"><strong class="text-strong">Für Natur- und Genussreisende:</strong> Kerala – Munnar – Alleppey – Kochi. Tropische Landschaften, Ayurveda und ruhige Backwaters.</p>
+
+    <p class="body-paragraph">Unsere Indien-Experten helfen dir, genau die Route zu wählen, die zu deinem Reisedatum und Reisestil passt.</p>
+
+<!--     <div class="sub-heading-style">FAQ ZUR REISEPLANUNG</div> -->
+    <h2 class="section-heading">Häufige Fragen deutscher Reisender</h2>
+
+    <dl>
+        <dt class="faq-question">Wann ist die beste Reisezeit für Nordindien?</dt>
+        <dd class="faq-answer">Von Oktober bis März – angenehm kühl, trocken und perfekt für Sightseeing.</dd>
+
+        <dt class="faq-question">Wann ist Monsunzeit in Indien?</dt>
+        <dd class="faq-answer">Zwischen Juni und September, je nach Region unterschiedlich stark.</dd>
+
+        <dt class="faq-question">Wann ist Indien am günstigsten zu bereisen?</dt>
+        <dd class="faq-answer">Während der Monsunzeit (Juli–September) sind viele Hotels günstiger und Sehenswürdigkeiten weniger überlaufen.</dd>
+
+        <dt class="faq-question">Ist der Sommer zu heiß für Rajasthan?</dt>
+        <dd class="faq-answer">Ja, im Mai/Juni kann es über 40 °C werden. Lieber im Winter reisen.</dd>
+
+        <dt class="faq-question">Welche Kleidung eignet sich je nach Jahreszeit?</dt>
+        <dd class="faq-answer">Leichte Baumwolle im Sommer, eine Jacke im Winter, bequeme Schuhe für Tempel und Besichtigungen.</dd>
+    </dl>
+
+<!--     <div class="sub-heading-style">FAZIT</div> -->
+    <h2 class="section-heading">Fazit – Die perfekte Reisezeit hängt von deinem Ziel ab</h2>
+
+    <p class="body-paragraph">Es gibt keine „eine“ beste Reisezeit für Indien. Jede Region hat ihren eigenen Charme – und wenn du weißt, was du sehen möchtest, findest du immer die passende Jahreszeit.</p>
+    <p class="body-paragraph">Deutsche Reisende genießen im Winter meist die angenehmsten Bedingungen, doch auch Sommer- oder Herbst Reisen können faszinierend sein.</p>
+
+    <p class="body-paragraph"><strong class="text-strong">Unser Tipp:</strong> Plane deine Route nach Klima, Interessen und Reisezeitraum – und überlasse den Rest den Experten.</p>
+
+    <a href="#" class="cta-button cta-pulse">Indien-Rundreise jetzt planen</a>
+
+<!--     <div class="sub-heading-style">ZUSAMMENFASSUNG FÜR SCHNELLLESER</div> -->
+    <h2 class="section-heading">Zusammenfassung für Schnellleser</h2>
+
+    <div class="table-responsive-wrapper">
+        <table class="regional-table">
+            <thead>
+                <tr>
+                    <th class="table-header table-cell">Reisezeit</th>
+                    <th class="table-header table-cell">Regionen</th>
+                    <th class="table-header table-cell">Vorteile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-cell">Okt–März</td>
+                    <td class="table-cell">Nord- & Westindien</td>
+                    <td class="table-cell">Trocken, angenehm, beste Zeit für Sightseeing</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Mai–Sept</td>
+                    <td class="table-cell">Himalaya, Nordosten</td>
+                    <td class="table-cell">Ideal für Trekking, wenig Touristen</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Dez–März</td>
+                    <td class="table-cell">Südindien</td>
+                    <td class="table-cell">Sonnig, perfekt für Strand & Ayurveda</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">Juli–Sept</td>
+                    <td class="table-cell">Kerala, Tamil Nadu</td>
+                    <td class="table-cell">Üppig grün, günstigere Preise</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="sub-heading-style">Letzter Gedanke</h3>
+    <p class="body-paragraph">Egal wann du reist – Indien belohnt dich mit Farben, Kultur und Herzlichkeit. Die richtige Planung sorgt nur dafür, dass du sie im besten Licht erlebst.</p>
+
+</div>
+</body>
